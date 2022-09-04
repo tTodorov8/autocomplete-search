@@ -2,26 +2,34 @@
   border: 1px solid red;
   display: block;
   margin: auto;
-  height: 300px;
+  /* height: 300px; */
 }
 .typeahead-form {
-  /* height: 300px; */
-  /* width: 200px; */
-  /* display: flex; */
   justify-content: center;
   align-items: center;
-  /* border: 1px solid orange; */
 }
 
 .autocomplete-items {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
   border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  width: 50%;
-  top: 100%;
-  left: 0;
-  right: 0;
+  max-width: 400px;
+
   cursor: pointer;
+  text-align: center;
+}
+.autocomplete-items img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* border: 1px solid red; */
+}
+.autocomplete-items h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+  margin-left: 20px;
 }
 
 .autocomplete-items:hover {
