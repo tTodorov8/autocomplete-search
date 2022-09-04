@@ -1,37 +1,37 @@
-.typeahead-container {
-  border: 1px solid red;
-  display: block;
-  margin: auto;
-  /* height: 300px; */
-}
-.typeahead-form {
+body .autocomplete-input-wrapper {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.autocomplete-items {
+body .autocomplete-input-wrapper .typeahead-form input {
+  width: 300px;
+  height: 30px;
+  color: #323330;
+}
+body .autocomplete-list .autocomplete-items {
   display: flex;
+  margin: 0px auto;
   align-items: center;
-  /* justify-content: center; */
+  background-color: #323330;
   border: 1px solid #d4d4d4;
-  max-width: 400px;
-
+  width: 300px;
   cursor: pointer;
   text-align: center;
 }
-.autocomplete-items img {
+body .autocomplete-list .autocomplete-items img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  /* border: 1px solid red; */
 }
-.autocomplete-items h2 {
+body .autocomplete-list .autocomplete-items h2 {
   margin: 0;
   font-size: 18px;
   font-weight: normal;
   margin-left: 20px;
+  color: #d4d4d4;
 }
-
-.autocomplete-items:hover {
+body .autocomplete-list .autocomplete-items:hover {
   background-color: rgb(220, 191, 0);
 }
+
+/*# sourceMappingURL=style.css.map */
