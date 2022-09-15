@@ -13,12 +13,14 @@
     <div class="autocomplete-input-wrapper">
         <form class="typeahead-form" action="/index.html" method="GET" pattern="[A-Za-z]{3}"
             title="Countries should contain only letters !">
-            <input type="text" name="text-input" placeholder="Search for a country" id="text-input" autocomplete="off">
+
+            <div class="input-wrapper">
+                <input type="text" name="text-input" placeholder="Search for a country..." id="text-input"
+                    autocomplete="off">
+            </div>
         </form>
     </div>
-
     <div class="autocomplete-list"></div>
-
     <script src="./assets/js/script.js" type="module"></script>
 </body>
 

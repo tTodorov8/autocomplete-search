@@ -2,7 +2,6 @@
 fetch("https://restcountries.com/v3.1/all")
   .then((response) => response.json())
   .then((countriesArray) => {
-    console.log(countriesArray);
     let textInput = document.getElementById("text-input");
     let autoCompleteList = document.querySelector(".autocomplete-list");
     // Autocomplete search function
@@ -18,6 +17,7 @@ fetch("https://restcountries.com/v3.1/all")
         for (let i = 0; i < countriesArray.length; i++) {
           let countryName = countriesArray[i].name.common;
           let countryFlag = countriesArray[i].flags.svg;
+          let country;
           // Check if the countryName from the array contains input value
           if (
             countryName.toLowerCase().includes(value) ||
@@ -44,30 +44,31 @@ fetch("https://restcountries.com/v3.1/all")
       });
       //setting the focus of autocompleted items
       let currentFocus = -1;
-      textInput.addEventListener("keydown", function (e) {
+      textInput.addEventListener("keydown", navigateAutoComplete);
+      function navigateAutoComplete(e) {
         let completeListArray = autoCompleteList.getElementsByTagName("div");
-        //
-
         //moving prediction down
         if (e.keyCode == 40) {
           currentFocus++;
           if (currentFocus >= completeListArray.length) {
             currentFocus = 0;
           }
+
           if (currentFocus < 0) {
             currentFocus = completeListArray.length - 1;
           }
+
           if (currentFocus == 0) {
             completeListArray[
               completeListArray.length - 1
-            ].style.backgroundColor = "#323330";
+            ].style.backgroundColor = "#ffffff";
           }
           textInput.value = completeListArray[currentFocus].innerText;
-          completeListArray[currentFocus].style.backgroundColor = "#f0db4f";
+          completeListArray[currentFocus].style.backgroundColor = "#039ed9";
 
           if (currentFocus > 0) {
             completeListArray[currentFocus - 1].style.backgroundColor =
-              "#323330";
+              "#ffffff";
           }
         }
 
@@ -79,13 +80,13 @@ fetch("https://restcountries.com/v3.1/all")
           }
           if (currentFocus < 0) {
             currentFocus = completeListArray.length - 1;
-            completeListArray[0].style.backgroundColor = "#323330";
+            completeListArray[0].style.backgroundColor = "#ffffff";
           }
           textInput.value = completeListArray[currentFocus].textContent;
-          completeListArray[currentFocus].style.backgroundColor = "#f0db4f";
+          completeListArray[currentFocus].style.backgroundColor = "#039ed9";
           if (currentFocus < completeListArray.length - 1) {
             completeListArray[currentFocus + 1].style.backgroundColor =
-              "#323330";
+              "#ffffff";
           }
         }
         //enter the prediction to the input
@@ -95,7 +96,7 @@ fetch("https://restcountries.com/v3.1/all")
           closeList(autoCompleteList);
           currentFocus = -1;
         }
-      });
+      }
     }
     //Function for closing previous lists
     function closeList(autoCompleteList) {
